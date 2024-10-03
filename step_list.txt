@@ -102,3 +102,45 @@ php artisan migrate:refresh --seed
 
 -aggiungere alla funzione per errore Migrations
    Schema::dropIfExists('characters');
+
+   auth
+
+   cartellaproviders, file routeserviceprovider cambiare da dahsbord ad admin
+   lanciare il comando php artisan make:controller Admin\DashboardController
+   nel file dashboardcontroller fare questa funzione:     public function index()
+    {
+        return view('dashboard');
+    }
+
+    nel file web usiamo il nuovo controller, commentiamo la seconda route e scriviamo: Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
+    route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+});
+
+php artisan make:model -rcmsR Post
+
+andiamo nella migration e creiamo una tabella dopo lanciamo php artisan migrate
+
+andiamo nella cartella seeder file postseeder 
+use Faker\Generator as Faker;
+use App\Models\Post;
+use Illuminate\Support\Str;
+
+    public function run(Faker $faker)
+    {
+        for ($i = 0; $i < 50; $i++) {
+            $post = new Post();
+            $post->title = $faker->sentence(3);
+            $post->content = $faker->text(500);
+            $post->slug = Str::slug($post->title, '-');
+
+            $post->save();
+        }
+    }
+
+    php artisan db:seed
+
+
+    Spostare il file postcontroller nella cartella admin 
+    modificare il name space: namespace App\Http\Controllers\Admin;
+    e scrivere use App\Http\Controllers\Controller;
+
