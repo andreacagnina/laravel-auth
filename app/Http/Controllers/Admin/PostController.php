@@ -36,7 +36,18 @@ class PostController extends Controller
      * @param  \App\Http\Requests\StorePostRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePostRequest $request) {}
+    public function store(StorePostRequest $request)
+    {
+        $post = new Post();
+        $form_data = $request->validated();
+        $slug = $post->generateSlug($form_data['title']);
+        $form_data['slug'] = $slug;
+
+        $post->fill($form_data);
+        $post->save();
+
+        return redirect()->route('admin.posts.index');
+    }
 
     /**
      * Display the specified resource.

@@ -21,7 +21,8 @@
                     <div class="row">
                         <div class="col-12">
                             <label for="content" class="form-label">Contenuto</label>
-                            <textarea name="content" id="content" cols="30" rows="15" value="{{ old('content') }}" class="form-control"></textarea>
+                            <textarea name="content" id="content-post" cols="30" rows="15" value="{{ old('content') }}"
+                                class="form-control"></textarea>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-outline-primary my-4">INVIA</button>

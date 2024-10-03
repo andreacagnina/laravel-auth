@@ -5,7 +5,9 @@
         <div class="row">
             <div class="col-12">
                 <div class="contant">
-                    dettaglio di questo post {{ $post->title }}
+                    <strong>Titolo:</strong> {{ $post->title }} <br>
+                    <strong>Contenuto:</strong> {{ $post->content }}
+
                 </div>
             </div>
         </div>
