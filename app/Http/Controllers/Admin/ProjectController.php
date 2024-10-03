@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Post;
-use App\Http\Requests\StorePostRequest;
-use App\Http\Requests\UpdatePostRequest;
+use App\Models\Project;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 
-class PostController extends Controller
+
+use Illuminate\Http\Request;
+
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +19,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        return view("admin.posts.index", compact("posts"));
+        $projects = Project::all();
+        return view("admin.projects.index", compact("projects"));
     }
 
     /**
@@ -27,46 +30,43 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        return view('admin.projects.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePostRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePostRequest $request)
+    public function store(StoreProjectRequest $request)
     {
-        $post = new Post();
+        $project = new project();
         $form_data = $request->validated();
-        $slug = $post->generateSlug($form_data['title']);
-        $form_data['slug'] = $slug;
+        $project->fill($form_data);
+        $project->save();
 
-        $post->fill($form_data);
-        $post->save();
-
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('admin.projects.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Project $project)
     {
-        return view("admin.posts.show", compact("post"));
+        return view("admin.projects.show", compact("project"));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
         //
     }
@@ -74,11 +74,11 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePostRequest  $request
-     * @param  \App\Models\Post  $post
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
         //
     }
@@ -86,10 +86,10 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
         //
     }
