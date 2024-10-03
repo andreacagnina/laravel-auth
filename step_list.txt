@@ -143,4 +143,16 @@ use Illuminate\Support\Str;
     Spostare il file postcontroller nella cartella admin 
     modificare il name space: namespace App\Http\Controllers\Admin;
     e scrivere use App\Http\Controllers\Controller;
+        public function index()
+    {
+        $post = Post::all();
+        return view("admin.posts.index", compact("post"));
+    }
+
+    creare in view la cartella admin e dentro admin la cartella posts e dentro posts il file index che compileremo per veder ei risultati
+
+    su web
+    use App\Http\Controllers\Admin\PostController as PostController;
+    e aggiungiamo nella route fatta prima (middleware)
+    route::resource('/posts', PostController::class);
 
