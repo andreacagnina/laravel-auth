@@ -10,7 +10,7 @@
             <div class="col-12">
                 <table class="table">
                     <thead>
-                        <tr class="">
+                        <tr>
                             <th>Nome</th>
                             <th>Descrizione</th>
                             <th>Slug</th>
