@@ -3,7 +3,9 @@
 @section('content')
     <div class="container my-3">
         <div class="row">
-            <a href="{{ route('admin.projects.create') }}" class="btn btn-primary">Add a New project</a>
+            <div class="col offset-5">
+                <a href="{{ route('admin.projects.create') }}" class="btn btn-primary">Add a New project</a>
+            </div>
         </div>
         <div class="row">
 
@@ -30,7 +32,7 @@
                                 <td>
                                     <div class="d-flex">
                                         <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
-                                            class="btn btn-success">
+                                            class="btn btn-primary">
                                             <i class="fas fa-eye"></i>
                                         </a>
                                         <a class="btn btn-warning mx-1"

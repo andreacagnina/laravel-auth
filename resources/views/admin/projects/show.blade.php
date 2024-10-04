@@ -14,6 +14,8 @@
                                 <th>Dettagli</th>
                                 <th>Inizio</th>
                                 <th>Fine</th>
+                                <th>Tools</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -27,6 +29,12 @@
                                 <td>{{ $project->start_date }}</td>
                                 <td>{{ $project->end_date }}</td>
                                 <td>
+                                    <div class="d-flex">
+                                        <a href="{{ route('admin.projects.index') }}" class="btn btn-primary">
+                                            <i class="fa-solid fa-rotate-left"></i>
+                                        </a>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
