@@ -24,8 +24,8 @@
                     <div class="row">
                         <div class="col-12">
                             <label for="description" class="form-label">Descrizione</label>
-                            <textarea name="description" id="description-project" cols="30" rows="5" value="{{ old('description') }}"
-                                class="form-control @error('name') is-invalid @enderror"></textarea>
+                            <textarea name="description" id="description-project" cols="30" rows="5"
+                                class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
                             @error('description')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -35,7 +35,7 @@
                         <div class="col-12">
                             <label for="start_date" class="form-label">Start Date</label>
                             <input type="date" name="start_date" id="start_date" value="{{ old('start_date') }}"
-                                class="form-control @error('name') is-invalid @enderror">
+                                class="form-control @error('start_date') is-invalid @enderror">
                             @error('start_Date')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -45,7 +45,7 @@
                         <div class="col-12">
                             <label for="end_date" class="form-label">End Date</label>
                             <input type="date" name="end_date" id="end_date" value="{{ old('end_date') }}"
-                                class="form-control @error('name') is-invalid @enderror">
+                                class="form-control @error('end_date') is-invalid @enderror">
                             @error('end_date')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror

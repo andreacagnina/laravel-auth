@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="content">
-                    <h1>Modifica un nuovo progetto</h1>
+                    <h1>Modifica un progetto</h1>
                 </div>
             </div>
             <div class="col">
@@ -26,7 +26,7 @@
                         <div class="col-12">
                             <label for="description" class="form-label">Descrizione</label>
                             <textarea name="description" id="description-project" cols="30" rows="5"
-                                value="{{ old('description', $project->description) }}" class="form-control @error('name') is-invalid @enderror"></textarea>
+                                class="form-control @error('description') is-invalid @enderror">{{ old('description', $project->description) }}</textarea>
                             @error('description')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -37,8 +37,8 @@
                             <label for="start_date" class="form-label">Start Date</label>
                             <input type="date" name="start_date" id="start_date"
                                 value="{{ old('start_date', $project->start_date) }}"
-                                class="form-control @error('name') is-invalid @enderror">
-                            @error('start_Date')
+                                class="form-control @error('start_date') is-invalid @enderror">
+                            @error('start_date')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -48,7 +48,7 @@
                             <label for="end_date" class="form-label">End Date</label>
                             <input type="date" name="end_date" id="end_date"
                                 value="{{ old('end_date', $project->end_date) }}"
-                                class="form-control @error('name') is-invalid @enderror">
+                                class="form-control @error('end_date') is-invalid @enderror">
                             @error('end_date')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror

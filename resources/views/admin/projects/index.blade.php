@@ -10,7 +10,7 @@
             <div class="col-12">
                 <table class="table">
                     <thead>
-                        <tr class="text-center">
+                        <tr class="">
                             <th>Nome</th>
                             <th>Descrizione</th>
                             <th>Slug</th>
@@ -41,7 +41,7 @@
                                             method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger"
+                                            <button type="submit" class="btn btn-danger delete"
                                                 data-projectName="{{ $project->name }}"><i class="fa-solid fa-trash"></i>
                                         </form>
                                     </div>

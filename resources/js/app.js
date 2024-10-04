@@ -22,7 +22,7 @@ delete_buttons.forEach((button) => {
         const projectName = button.getAttribute('data-projectName');
 
         const ModalText = modal.querySelector('#modal_text');
-        ModalText.innerHTML = `Sei sicuro di volere cancellare <strong>${projectName}</strong>`;
+        ModalText.innerHTML = `Sei sicuro di volere cancellare questo progetto?<br><strong>${projectName}</strong>`;
 
         buttonDelete.addEventListener('click', function () {
             button.parentElement.submit();
