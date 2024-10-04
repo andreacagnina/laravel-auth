@@ -3,8 +3,8 @@
 @section('content')
     <div class="container my-3">
         <div class="row">
-            <div class="col offset-5">
-                <a href="{{ route('admin.projects.create') }}" class="btn btn-primary">Add a New project</a>
+            <div class="d-grid col-12">
+                <a href="{{ route('admin.projects.create') }}" class="btn btn-outline-primary">Add a New project</a>
             </div>
         </div>
         <div class="row">
@@ -32,10 +32,10 @@
                                 <td>
                                     <div class="d-flex">
                                         <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
-                                            class="btn btn-primary">
+                                            class="btn btn-outline-primary">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a class="btn btn-warning mx-1"
+                                        <a class="btn btn-outline-warning mx-1"
                                             href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"><i
                                                 class="fa-solid fa-pen-to-square"></i></a>
                                         </a>
@@ -43,7 +43,7 @@
                                             method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger delete"
+                                            <button type="submit" class="btn btn-outline-danger delete"
                                                 data-projectName="{{ $project->name }}"><i class="fa-solid fa-trash"></i>
                                         </form>
                                     </div>

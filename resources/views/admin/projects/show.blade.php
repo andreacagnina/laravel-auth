@@ -30,7 +30,7 @@
                                 <td>{{ $project->end_date }}</td>
                                 <td>
                                     <div class="d-flex">
-                                        <a href="{{ route('admin.projects.index') }}" class="btn btn-primary">
+                                        <a href="{{ route('admin.projects.index') }}" class="btn btn-outline-info">
                                             <i class="fa-solid fa-rotate-left"></i>
                                         </a>
                                     </div>
