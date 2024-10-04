@@ -10,11 +10,13 @@
             <div class="col-12">
                 <table class="table">
                     <thead>
-                        <tr>
+                        <tr class="text-center">
                             <th>Nome</th>
                             <th>Descrizione</th>
+                            <th>Slug</th>
                             <th>Inizio</th>
                             <th>Fine</th>
+                            <th>Tools</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -22,13 +24,27 @@
                             <tr>
                                 <td>{{ $project->name }}</td>
                                 <td>{{ $project->description }}</td>
+                                <td>{{ $project->slug }}</td>
                                 <td>{{ $project->start_date }}</td>
                                 <td>{{ $project->end_date }}</td>
                                 <td>
-                                    <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
-                                        class="btn btn-primary">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
+                                    <div class="d-flex">
+                                        <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
+                                            class="btn btn-success">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a class="btn btn-warning mx-1"
+                                            href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"><i
+                                                class="fa-solid fa-pen-to-square"></i></a>
+                                        </a>
+                                        <form action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}"
+                                            method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger"
+                                                data-projectName="{{ $project->name }}"><i class="fa-solid fa-trash"></i>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach
@@ -37,4 +53,5 @@
             </div>
         </div>
     </div>
+    @include('admin.projects.partials.modal_delete')
 @endsection

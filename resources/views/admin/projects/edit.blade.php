@@ -5,16 +5,17 @@
         <div class="row">
             <div class="col-12">
                 <div class="content">
-                    <h1>Aggiungi un nuovo progetto</h1>
+                    <h1>Modifica un nuovo progetto</h1>
                 </div>
             </div>
             <div class="col">
-                <form action="{{ route('admin.projects.store') }}" method="post">
+                <form action="{{ route('admin.projects.update', ['project' => $project->id]) }}" method="post">
                     @csrf
+                    @method('PUT')
                     <div class="row">
                         <div class="col-12">
                             <label for="name" class="form-label">Titolo</label>
-                            <input type="text" name="name" id="name" value="{{ old('name') }}"
+                            <input type="text" name="name" id="name" value="{{ old('name', $project->name) }}"
                                 class="form-control @error('name') is-invalid @enderror">
                             @error('name')
                                 <span class="text-danger">{{ $message }}</span>
@@ -24,8 +25,8 @@
                     <div class="row">
                         <div class="col-12">
                             <label for="description" class="form-label">Descrizione</label>
-                            <textarea name="description" id="description-project" cols="30" rows="5" value="{{ old('description') }}"
-                                class="form-control @error('name') is-invalid @enderror"></textarea>
+                            <textarea name="description" id="description-project" cols="30" rows="5"
+                                value="{{ old('description', $project->description) }}" class="form-control @error('name') is-invalid @enderror"></textarea>
                             @error('description')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -34,7 +35,8 @@
                     <div class="row">
                         <div class="col-12">
                             <label for="start_date" class="form-label">Start Date</label>
-                            <input type="date" name="start_date" id="start_date" value="{{ old('start_date') }}"
+                            <input type="date" name="start_date" id="start_date"
+                                value="{{ old('start_date', $project->start_date) }}"
                                 class="form-control @error('name') is-invalid @enderror">
                             @error('start_Date')
                                 <span class="text-danger">{{ $message }}</span>
@@ -44,7 +46,8 @@
                     <div class="row">
                         <div class="col-12">
                             <label for="end_date" class="form-label">End Date</label>
-                            <input type="date" name="end_date" id="end_date" value="{{ old('end_date') }}"
+                            <input type="date" name="end_date" id="end_date"
+                                value="{{ old('end_date', $project->end_date) }}"
                                 class="form-control @error('name') is-invalid @enderror">
                             @error('end_date')
                                 <span class="text-danger">{{ $message }}</span>

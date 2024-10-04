@@ -30,4 +30,15 @@ class StoreProjectRequest extends FormRequest
             'end_date' => 'nullable|date|after_or_equal:start_date',
         ];
     }
+    public function messages()
+    {
+        return [
+            'name.required' => 'Titolo obbligatorio',
+            'name.unique' => 'Questo titolo esiste già',
+            'name.max' => 'Superato il numero massimo di caratteri (150)',
+            'description.max' => 'Superato il numero massimo di caratteri (500)',
+            'start_date.required' => 'Data obbligatoria',
+            'end_date.required' => 'Data obbligatoria',
+        ];
+    }
 }

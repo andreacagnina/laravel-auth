@@ -7,8 +7,8 @@
                 <div class="contant">
                     <strong>Titolo:</strong> {{ $project->name }} <br>
                     <strong>Descrizione:</strong> {{ $project->description }} <br>
-                    <strong>Descrizione:</strong> {{ $project->start_date }} <br>
-                    <strong>Descrizione:</strong> {{ $project->end_date }}
+                    <strong>Data di inizio:</strong> {{ $project->start_date }} <br>
+                    <strong>Data di fine:</strong> {{ $project->end_date }}
                 </div>
             </div>
         </div>
