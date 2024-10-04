@@ -4,7 +4,7 @@
     <div class="container my-3">
         <div class="row">
             <div class="d-grid col-12">
-                <a href="{{ route('admin.projects.create') }}" class="btn btn-outline-primary">Add a New project</a>
+                <a href="{{ route('admin.projects.create') }}" class="btn btn-primary">Add a New project</a>
             </div>
         </div>
         <div class="row">

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardController as DashboardController;
 use App\Http\Controllers\Admin\ProjectController as ProjectController;
 
@@ -16,9 +17,7 @@ use App\Http\Controllers\Admin\ProjectController as ProjectController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('homepage');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

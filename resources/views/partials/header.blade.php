@@ -1,13 +1,13 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-        <div class="container">
+        <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                {{-- <img src="{{vite::asset('resources/img/NOMEFILE')}}" alt=""> --}}
-                LOGO
+                <img src="{{ asset('img/animal-2028258_960_720.webp') }}" alt="logo" class="logo">
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -15,10 +15,12 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
+                        <a class="nav-link {{ Route::currentRouteName() === 'homepage' ? 'fw-bold' : '' }}"
+                            href="{{ url('/') }}">{{ __('Home') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.projects.index') }}">{{ __('Projects') }}</a>
+                        <a class="nav-link {{ Route::currentRouteName() === 'admin.projects.index' ? 'fw-bold' : '' }}"
+                            href="{{ route('admin.projects.index') }}">{{ __('Projects') }}</a>
                     </li>
                 </ul>
 
