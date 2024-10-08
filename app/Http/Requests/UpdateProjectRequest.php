@@ -30,6 +30,7 @@ class UpdateProjectRequest extends FormRequest
             'description' => ['nullable', 'max:500'],
             'start_date' => ['required', 'date'],
             'end_date' => ['nullable', 'date', 'after_or_equal:start_date'],
+            'cover_project_image' => ['image', 'max:4084']
         ];
     }
     public function messages()
@@ -41,6 +42,7 @@ class UpdateProjectRequest extends FormRequest
             'description.max' => 'Superato il numero massimo di caratteri (500)',
             'start_date.required' => 'Data obbligatoria',
             'end_date.required' => 'Data obbligatoria',
+            'cover_project_image.max' => 'Il file non deve superare i 4 MB',
         ];
     }
 }
