@@ -57,7 +57,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <div class="content w-h-cust mb-4">
+                            <div class="content w-h-cust mb-5">
                                 <label for="cover_project_image" class="form-label">Cover Image:</label>
                                 @if (Str::startsWith($project->cover_project_image, 'https'))
                                     <img class="cover_project_image" src="{{ $project->cover_project_image }}"
@@ -69,8 +69,6 @@
                                 @endif
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col-12"> <input type="file" name="cover_project_image" id="cover_project_image"
                                 class="form-control @error('cover_project_image') is-invalid @enderror">
                             @error('cover_project_image')

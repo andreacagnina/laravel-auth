@@ -114,6 +114,9 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if (Str::startsWith($project->cover_project_image, 'https') === false) {
+            Storage::delete($project->cover_project_image);
+        }
         $project->delete();
         return redirect()->route("admin.projects.index");
     }
