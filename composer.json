@@ -10,7 +10,7 @@
     "require": {
         "php": "^8.0.2",
         "guzzlehttp/guzzle": "^7.2",
-        "illuminate/validation": "8.0",
+        "illuminate/validation": "*",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",

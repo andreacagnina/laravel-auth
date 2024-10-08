@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use Illuminate\Support\Str;
 
 
 use Illuminate\Http\Request;
@@ -46,7 +47,7 @@ class ProjectController extends Controller
         $form_data['slug'] = Project::generateSlug($form_data['name']);
 
         if ($request->hasFile('cover_project_image')) {
-            $form_data['cover_project_image'] = Storage::put('cover_project_image', $form_data['cover_project-image']);
+            $form_data['cover_project_image'] = Storage::put('cover_project_image', $form_data['cover_project_image']);
         } else {
             $form_data['cover_project_image'] = 'https://placehold.co/600x400?text=Project+Image';
         }
@@ -92,6 +93,15 @@ class ProjectController extends Controller
 
         $form_data = $request->validated();
         $form_data['slug'] = Project::generateSlug($form_data['name']);
+
+        if ($request->hasFile('cover_project_image')) {
+            if (Str::startsWith($project->cover_project_image, 'https') === false) {
+                Storage::delete($project->cover_project_image);
+            }
+
+            $form_data['cover_project_image'] = Storage::put('cover_project_image', $form_data['cover_project_image']);
+        }
+
         $project->update($form_data);
         return redirect()->route('admin.projects.show', ['project' => $project->id]);
     }

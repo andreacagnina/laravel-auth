@@ -9,7 +9,9 @@
                 </div>
             </div>
             <div class="col">
-                <form action="{{ route('admin.projects.update', ['project' => $project->id]) }}" method="post">
+                <form action="{{ route('admin.projects.update', ['project' => $project->id]) }}" method="post"
+                    enctype="multipart/form-data">
+
                     @csrf
                     @method('PUT')
                     <div class="row">
@@ -52,6 +54,17 @@
                             @error('end_date')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            @if (Str::startsWith($project->cover_project_image, 'https'))
+                                <img class="cover_project_image" src="{{ $project->cover_project_image }}"
+                                    alt="{{ $project->name }}">
+                            @else
+                                <img class="cover_project_image"
+                                    src="{{ asset('./storage/' . $project->cover_project_image) }}"
+                                    alt="{{ $project->name }}">
                         </div>
                     </div>
                     <div class="row">
