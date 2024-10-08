@@ -54,6 +54,15 @@
                             @enderror
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-12"> <label for="cover_project_image" class="form-label">Cover Image</label><input
+                                type="file" name="cover_project_image" id="cover_project_image"
+                                class="form-control @error('cover_project_image') is-invalid @enderror">
+                            @error('cover_project_image')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
                     <button type="submit" class="btn btn-outline-primary my-4">INVIA</button>
                 </form>
             </div>
