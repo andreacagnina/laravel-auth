@@ -56,7 +56,7 @@ class ProjectController extends Controller
         $project->fill($form_data);
         $project->save();
 
-        return redirect()->route('admin.projects.index');
+        return redirect()->route('admin.projects.index')->with("success", "Progetto Creato");
     }
 
     /**
@@ -103,7 +103,7 @@ class ProjectController extends Controller
         }
 
         $project->update($form_data);
-        return redirect()->route('admin.projects.show', ['project' => $project->id]);
+        return redirect()->route('admin.projects.show', ['project' => $project->id])->with("success", "Progetto Modificato");
     }
 
     /**
@@ -118,6 +118,6 @@ class ProjectController extends Controller
             Storage::delete($project->cover_project_image);
         }
         $project->delete();
-        return redirect()->route("admin.projects.index");
+        return redirect()->route("admin.projects.index")->with("success", "Progetto Cancellato");
     }
 }

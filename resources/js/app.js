@@ -29,4 +29,16 @@ delete_buttons.forEach((button) => {
         })
     }
     );
-})
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    var successAlert = document.getElementById('success-alert');
+
+    if (successAlert) {
+        setTimeout(function () {
+            successAlert.classList.add('fade-out');
+        }, 3000);
+    }
+
+});

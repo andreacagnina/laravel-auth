@@ -2,11 +2,23 @@
 
 @section('content')
     <div class="container my-3">
+        @if (session('success'))
+            <div class="row">
+                <div class="col-12">
+                    <div class="content mt-1 text-center">
+                        <div id="success-alert" class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
         <div class="row">
             <div class="col-12">
                 <div class="content w-h-cust">
                     @if (Str::startsWith($project->cover_project_image, 'https'))
-                        <img class="cover_project_image" src="{{ $project->cover_project_image }}" alt="{{ $project->name }}">
+                        <img class="cover_project_image" src="{{ $project->cover_project_image }}"
+                            alt="{{ $project->name }}">
                     @else
                         <img class="cover_project_image" src="{{ asset('./storage/' . $project->cover_project_image) }}"
                             alt="{{ $project->name }}">
@@ -53,4 +65,5 @@
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+@endsection
