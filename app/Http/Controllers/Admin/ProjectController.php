@@ -52,9 +52,7 @@ class ProjectController extends Controller
             $form_data['cover_project_image'] = 'https://placehold.co/600x400?text=Project+Image';
         }
 
-        $project = new project();
-        $project->fill($form_data);
-        $project->save();
+        Project::create($form_data);
 
         return redirect()->route('admin.projects.index')->with("success", "Progetto Creato");
     }
